@@ -28,21 +28,24 @@
     }
   }
 
-  function createResultElement(title, uri) {
+  function createResultElement(title, uri, id) {
     const result = document.createElement('div');
     result.classList = 'result-item';
     result.innerHTML = `
       <h4 class="result-title">${title}</h4>
-      <img src="${uri}" alt="Thumbanil describing ${title}" \
-           width="120" height="90">
+      <a href="https://www.youtube.com/watch?v=${id}" target="_blank">
+        <img src="${uri}" alt="Thumbanil describing ${title}" \
+             width="120" height="90">
+      </a>
     `
     return result;
   }
 
   function addResults({ items }) {
-    items.forEach(({ snippet }) => {
-      const { title } = snippet, { url } = getThumbnail(snippet);
-      const item = createResultElement(title, url);
+    items.forEach(({ snippet, id }) => {
+      const { title } = snippet, { url } = getThumbnail(snippet),
+            { videoId } = id;
+      const item = createResultElement(title, url, videoId);
       resultsHtml.append(item);
     });
   }
