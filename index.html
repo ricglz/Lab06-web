@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Youtube API Practice</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script defer src="./js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/index.css"/>
   </head>
   <body>
     <section class="search-section">
@@ -13,7 +15,11 @@
         <input type="submit" id="submit-btn" />
       </form>
     </section>
-    <section class="results-section">
-    </section>
+    <main class="results">
+    </main>
+    <footer>
+      <button class="hidden" id="prev-page-btn">Prev page</button>
+      <button class="hidden" id="next-page-btn">Next page</button>
+    </footer>
   </body>
 </html>
